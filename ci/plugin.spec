@@ -22,7 +22,7 @@ under tracking, the frame will be cropped.
 %autosetup -p1
 
 %build
-%{cmake} -DLINUX_PORTABLE=OFF -DLINUX_RPATH=OFF
+%{cmake} -DLINUX_PORTABLE=OFF -DLINUX_RPATH=OFF -DQT_VERSION=6
 %{cmake_build}
 
 %install
