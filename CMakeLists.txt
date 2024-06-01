@@ -50,6 +50,7 @@ if (WITH_DLIB_SUBMODULE)
 	add_subdirectory(dlib)
 else()
 	find_package(dlib REQUIRED)
+	add_library(dlib ALIAS dlib::dlib)
 endif()
 
 set(CMAKE_AUTOMOC ON)
