@@ -26,7 +26,11 @@ under tracking, the frame will be cropped.
 %setup -T -D -a 1
 
 %build
-%{cmake} -DLINUX_PORTABLE=OFF -DLINUX_RPATH=OFF -DQT_VERSION=6 -DWITH_DLIB_SUBMODULE=OFF
+%{cmake} \
+ -DLINUX_PORTABLE=OFF -DLINUX_RPATH=OFF \
+ -DQT_VERSION=6 \
+ -DWITH_DLIB_SUBMODULE=OFF \
+ -DBUILD_SHARED_LIBS:BOOL=OFF
 %{cmake_build}
 
 %install
