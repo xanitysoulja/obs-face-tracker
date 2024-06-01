@@ -7,6 +7,7 @@ rpmbuild="$2"
 
 PLUGIN_NAME=$(awk '/^project\(/{print gensub(/project\(([^ ()]*).*/, "\\1", 1, $0)}' CMakeLists.txt)
 PLUGIN_NAME_FEDORA="$(sed -e 's/^obs-/obs-studio-plugin-/' <<< "$PLUGIN_NAME")"
+OBS_VERSION=$(docker run $docker_image bash -c 'rpm -q --qf "%{version}" obs-studio')
 eval $(git describe --tag --always --long | awk '
 BEGIN {
 	VERSION="unknown";
@@ -36,6 +37,7 @@ sed \
 	-e "s/@PLUGIN_NAME_FEDORA@/$PLUGIN_NAME_FEDORA/g" \
 	-e "s/@VERSION@/$VERSION/g" \
 	-e "s/@RELEASE@/$RELEASE/g" \
+	-e "s/@OBS_VERSION@/$OBS_VERSION/g" \
 	< ci/plugin.spec \
 	> $rpmbuild/SPECS/$PLUGIN_NAME_FEDORA.spec
 

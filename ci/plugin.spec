@@ -5,8 +5,10 @@ Summary: OBS Studio plugin as video filters to track face for mainly a speaking 
 License: GPLv3+
 
 Source0: %{name}-%{version}.tar.bz2
+Requires: obs-studio >= @OBS_VERSION@
 BuildRequires: cmake, gcc, gcc-c++
 BuildRequires: obs-studio-devel
+BuildRequires: qt6-qtbase-devel qt6-qtbase-private-devel
 
 %description
 This plugin tracks face of a person by detecting and tracking a face.
