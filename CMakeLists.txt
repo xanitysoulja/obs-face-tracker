@@ -48,6 +48,8 @@ if (WITH_DLIB_SUBMODULE)
 	set(DLIB_WEBP_SUPPORT OFF)
 	set(DLIB_TEST_COMPILE_ALL_SOURCE_CPP OFF)
 	add_subdirectory(dlib)
+else()
+	find_package(dlib REQUIRED)
 endif()
 
 set(CMAKE_AUTOMOC ON)
