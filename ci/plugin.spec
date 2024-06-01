@@ -5,6 +5,7 @@ Summary: OBS Studio plugin as video filters to track face for mainly a speaking 
 License: GPLv3+
 
 Source0: %{name}-%{version}.tar.bz2
+Source1: %{name}-%{version}-libvisca.tar.bz2
 Requires: obs-studio >= @OBS_VERSION@
 BuildRequires: cmake, gcc, gcc-c++
 BuildRequires: obs-studio-devel
@@ -21,6 +22,7 @@ under tracking, the frame will be cropped.
 
 %prep
 %autosetup -p1
+%setup -T -D -a 1
 
 %build
 %{cmake} -DLINUX_PORTABLE=OFF -DLINUX_RPATH=OFF -DQT_VERSION=6 -DWITH_DLIB_SUBMODULE=OFF
