@@ -10,7 +10,8 @@ Requires: obs-studio >= @OBS_VERSION@
 BuildRequires: cmake, gcc, gcc-c++
 BuildRequires: obs-studio-devel
 BuildRequires: qt6-qtbase-devel qt6-qtbase-private-devel
-BuildRequires: dlib-devel
+BuildRequires: dlib-devel ffmpeg-free-devel sqlite-devel blas-devel lapack-devel
+# dlib-devel requires /usr/include/ffmpeg so that install ffmpeg-free-devel
 
 %description
 This plugin tracks face of a person by detecting and tracking a face.
